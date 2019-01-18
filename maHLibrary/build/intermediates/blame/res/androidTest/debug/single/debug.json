@@ -1,0 +1,158 @@
+[
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_btn_toggle_on.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\btn_toggle_on.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_ic_launcher.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_tab_segmented_left_on.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\tab_segmented_left_on.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_main_activity.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\layout\\main_activity.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_ic_launcher.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_progress_horizontal.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\progress_horizontal.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu_main.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_slide_right_exit.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_right_exit.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_ic_bootstrap.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\ic_bootstrap.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_tab_segmented_right_off.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\tab_segmented_right_off.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_btn_toggle.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_toggle.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_ic_launcher.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_image_oval.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\image_oval.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_btn_default_ring.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_default_ring.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_tab_segmented_left_off.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\tab_segmented_left_off.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_ui_actionbar.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\layout\\ui_actionbar.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_slide_right_enter.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_right_enter.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_btn_toggle_off.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\btn_toggle_off.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_tab_segmented_left.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\tab_segmented_left.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_tab_segmented_right.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\tab_segmented_right.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_edittext_default.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\edittext_default.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_tab_segmented_textcolor.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\tab_segmented_textcolor.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_ui_bootstrap.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\layout\\ui_bootstrap.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_slide_left_enter.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_left_enter.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_btn_default.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_default.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_tab_segmented_middle.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\tab_segmented_middle.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_ui_activity.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\layout\\ui_activity.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_slide_left_exit.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_left_exit.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_tab_segmented_top.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\tab_segmented_top.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_dotted_line_gray.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\dotted_line_gray.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_tab_segmented_middle_on.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\tab_segmented_middle_on.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_ab_background.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\ab_background.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_tab_segmented_middle_off.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\tab_segmented_middle_off.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_btn_default_textcolor.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_default_textcolor.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_ic_launcher.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_tab_segmented_right_on.png.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\tab_segmented_right_on.png"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_activity_main.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_main_fragment.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\layout\\main_fragment.xml"
+    },
+    {
+        "merged": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_image_rectangle.xml.flat",
+        "source": "D:\\workspace\\android-mahuan-v1.2.20170405\\app\\build\\intermediates\\bundles\\debug\\res\\drawable\\image_rectangle.xml"
+    }
+]
