@@ -5,9 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
-import android.os.Message;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -16,10 +14,16 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 
 import com.android.settings.vpn2.AidlVpnSettingsServer;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.zt.vpn.assistant.R;
 import com.zt.vpn.assistant.entry.VpnProfile;
+import com.zt.vpn.assistant.network.Requests;
+import com.zt.vpn.assistant.network.ResponseParser;
 import com.zt.vpn.assistant.utils.LogUtils;
 import com.zt.vpn.assistant.utils.Toasts;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,63 +38,14 @@ public class VpnServerFragment extends BaseFragment implements View.OnClickListe
     private AidlVpnSettingsServer mAidlVpnSettingsServer;
 
     private List<VpnProfile> mVpnProfileList = null;
-
     private boolean isVpnConnecting = false;
-
-    private Handler mHandler = new Handler(new Handler.Callback() {
-        @Override
-        public boolean handleMessage(Message msg) {
-            switch (msg.what) {
-                case VpnState.VPN_CONNECTED:
-                    if (null != vpnStartRadioButton && null != vpnStopRadioButton) {
-                        vpnStartRadioButton.setEnabled(false);
-                        vpnStopRadioButton.setEnabled(true);
-                    }
-                    break;
-                case VpnState.VPN_DISCONNECTED:
-                    if (null != vpnStartRadioButton && null != vpnStopRadioButton) {
-                        vpnStartRadioButton.setEnabled(true);
-                        vpnStopRadioButton.setEnabled(false);
-                    }
-                    break;
-                default:
-                    break;
-            }
-            return false;
-        }
-    });
-
-    @Override
-    protected void onVpnConnected() {
-        super.onVpnConnected();
-        mHandler.sendEmptyMessage(VpnState.VPN_CONNECTED);
-    }
-
-    @Override
-    protected void onVpnDisconnected() {
-        super.onVpnDisconnected();
-        mHandler.sendEmptyMessage(VpnState.VPN_DISCONNECTED);
-    }
-
-    @Override
-    protected void setVpnConnectedState() {
-        super.setVpnConnectedState();
-        isVpnConnecting = false;
-        mHandler.sendEmptyMessage(VPN_CONNECTED);
-    }
-
-    @Override
-    protected void setVpnDisconnectedState() {
-        super.setVpnDisconnectedState();
-        isVpnConnecting = false;
-        mHandler.sendEmptyMessage(VPN_DISCONNECTED);
-    }
 
     private ServiceConnection mServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             mAidlVpnSettingsServer = AidlVpnSettingsServer.Stub.asInterface(service);
             // 服务起来之后 回调
+            startConnectVpnServer();
             connected = true;
         }
 
@@ -110,8 +65,7 @@ public class VpnServerFragment extends BaseFragment implements View.OnClickListe
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setUpView(view);
-        bindService();
-        initVpnProfile();
+//        bindService();
     }
 
     private void setUpView(View view) {
@@ -123,17 +77,6 @@ public class VpnServerFragment extends BaseFragment implements View.OnClickListe
         vpnChangeUserRadioButton.setOnClickListener(this);
     }
 
-    private void initVpnProfile() {
-        mVpnProfileList = new ArrayList<>();
-        for (int i = 0; i <= 20; i++) {
-            VpnProfile profile = VpnProfile.newBuilder()
-                    .session("vpn" + i)
-                    .address("3wx." + "f332" + i + ".net")
-                    .userName("test" + i)
-                    .password("aaaa" + i).build();
-            mVpnProfileList.add(profile);
-        }
-    }
 
     private void bindService() {
         Intent intent = new Intent();
@@ -141,34 +84,48 @@ public class VpnServerFragment extends BaseFragment implements View.OnClickListe
         intent.setAction("com.vpn.aidl.settingsvpn");
         if (null != getActivity()) {
             getActivity().bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
-            LogUtils.d("开始服务绑定...");
+            LogUtils.e("开始服务绑定...");
         }
     }
 
-    private VpnProfile getProfile() {
-
-        VpnProfile profile = VpnProfile.newBuilder()
-                .session("vpn")
-                .address("61.235.101.12")
-                .userName("14231")
-                .password("14231").build();
-        return profile;
+    private void startConnectVpnServer() {
+        Requests.getVpnProfiles("江苏徐州", new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                ResponseParser r = new ResponseParser(response);
+                if (r.isOk()) {
+                    ArrayList<VpnProfile> vpns = VpnProfile.parse(r.getDataArray());
+                    final VpnProfile profile = vpns.get(0);
+                    Toasts.show(activity, profile.toString());
+                    LogUtils.e("profile = %s", profile.toString());
+                    connected(profile);
+                } else {
+                    Toasts.show(activity, R.string.service_not_available);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toasts.show(activity, R.string.network_error);
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.vpnStart:
-                if (!isVpnConnecting) {
-                    isVpnConnecting = !isVpnConnecting;
-                    connected(getProfile());
-                }
+                bindService();
+//                if (!isVpnConnecting) {
+//                    isVpnConnecting = !isVpnConnecting;
+////                    connected();
+//                }
                 break;
             case R.id.vpnStop:
                 disconnected();
                 break;
             case R.id.vpnChangeUser:
-                vpnChangeUser();
+                startConnectVpnServer();
                 break;
             default:
                 break;
@@ -190,14 +147,14 @@ public class VpnServerFragment extends BaseFragment implements View.OnClickListe
     private void connected(VpnProfile profile) {
         boolean result = false;
         try {
-            LogUtils.d("connected" + mAidlVpnSettingsServer.toString());
+            LogUtils.e("connected" + mAidlVpnSettingsServer.toString());
             mAidlVpnSettingsServer.connectVpn(profile.getSession(), profile.getAddress(), profile.getUserName(), profile.getPassword());
             result = true;
         } catch (RemoteException e) {
             e.printStackTrace();
             result = false;
         } finally {
-            LogUtils.d("connected  finally:" + result);
+            LogUtils.e("connected  finally:" + result);
         }
     }
 

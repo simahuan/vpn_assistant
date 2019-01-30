@@ -2,36 +2,40 @@ package com.zt.vpn.assistant.network;
 
 
 import com.zt.vpn.assistant.utils.LogUtils;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+/**
+ * @author
+ */
 public class ResponseParser {
     private JSONObject src;
-    private int errorCode;
+    private int okCode;
 
     public ResponseParser(JSONObject o) {
         LogUtils.d("response: %s", o.toString());
         src = o;
-        errorCode = o.optInt("ErrorCode", -1);
+        okCode = o.optInt("code", -1);
     }
 
     public boolean isOk() {
-        return errorCode == 1;
+        return okCode == 200;
     }
 
-    public int getErrorCode() {
-        return errorCode;
+    public int getOkCode() {
+        return okCode;
     }
 
     public JSONObject getData() {
-        return src.optJSONObject("Data");
+        return src.optJSONObject("data");
     }
 
     public String getDataString() {
-        return src.optString("Data");
+        return src.optString("data");
     }
 
     public JSONArray getDataArray() {
-        return src.optJSONArray("Data");
+        return src.optJSONArray("data");
     }
 }

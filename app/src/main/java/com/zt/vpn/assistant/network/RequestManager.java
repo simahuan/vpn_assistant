@@ -12,6 +12,7 @@ public class RequestManager {
 
     /**
      * 初始化Volley
+     *
      * @param context
      */
     public static void init(Context context) {
@@ -29,7 +30,7 @@ public class RequestManager {
     public static <T> Object add(Request<T> request) {
         Object tag = new Object();
         request.setTag(tag);
-        request.setRetryPolicy(new DefaultRetryPolicy(5000, 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        request.setRetryPolicy(new DefaultRetryPolicy(15 * 1000, 3, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         getRequestQueue().add(request);
         return tag;
     }

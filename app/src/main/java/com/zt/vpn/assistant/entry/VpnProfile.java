@@ -21,11 +21,11 @@ public class VpnProfile implements Parcelable {
         for (int i = 0; i < array.length(); ++i) {
             JSONObject j = array.optJSONObject(i);
             Builder b = VpnProfile.newBuilder()
-                    .userName(j.optString("userName"))
-                    .password(j.optString("password"))
-                    .address(j.optString("address"))
-                    .session(j.optString("session"))
-                    .area(j.optString("area"));
+                    .userName(j.optString("userName").trim())
+                    .password(j.optString("password").trim())
+                    .address(j.optString("address").trim())
+                    .session("vpn_" + j.optString("id").trim())
+                    .area(j.optString("area").trim());
             items.add(b.build());
         }
         return items;
@@ -69,6 +69,18 @@ public class VpnProfile implements Parcelable {
     }
 
     private String userName;
+
+    @Override
+    public String toString() {
+        return "VpnProfile{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", session='" + session + '\'' +
+                ", address='" + address + '\'' +
+                ", area='" + area + '\'' +
+                '}';
+    }
+
     private String password;
     private String session;
     private String address;
