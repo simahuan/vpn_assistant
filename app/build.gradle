@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 23
+    buildToolsVersion '28.0.2'
     defaultConfig {
         applicationId "com.zt.vpn.assistant"
         minSdkVersion 23
@@ -21,17 +21,15 @@ android {
     productFlavors {
         DailyTest {
             versionName "1.0.0"
-//            buildConfigField 'String', 'HOST', '"http://192.168.21.127:7784"'
-//            buildConfigField 'String', 'HOST_H5', '"http://web.qjw.pisendev.com:7781"'
-            buildConfigField 'String', 'HOST', '"https://api.3c1000.com"'
-            buildConfigField 'String', 'HOST_H5', '"https://h5.3c1000.com"'
+            buildConfigField 'String', 'HOST', '"http://192.168.1.191:85/api/v1/vpns?ts=1548812427"'
+            buildConfigField 'String', 'TOKEN', '"c16f2630cb8ef8077875.a49db657deddfc0d7e6a07945"'
             return void
         }
 
         Product {
             versionName "1.0.0rc1"
-            buildConfigField 'String', 'HOST', '"https://api.3c1000.com"'
-            buildConfigField 'String', 'HOST_H5', '"https://h5.3c1000.com"'
+            buildConfigField 'String', 'HOST', '"http://192.168.1.191:85/api/v1/vpns?ts=1548812427"'
+            buildConfigField 'String', 'TOKEN', '"c16f2630cb8ef8077875.a49db657deddfc0d7e6a07945"'
             return void
         }
         return void
@@ -46,19 +44,12 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'com.android.support:appcompat-v7:25.4.0'
     testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-
-    compile 'com.android.support:appcompat-v7:25.1.1'
-    compile 'com.android.support:design:25.1.1'
-    compile 'com.android.support:recyclerview-v7:25.1.1'
-    compile 'com.android.support:support-v13:25.1.1'
-    compile 'com.android.support:support-v4:25.1.1'
-    compile 'com.android.volley:volley:1.0.0'
-    compile 'com.facebook.fresco:fresco:1.0.0'
+    compile 'com.android.volley:volley:1.1.1'
+    implementation 'com.android.support:appcompat-v7:23.1.1'
+    implementation 'com.android.support:support-v4:23.1.1'
 }

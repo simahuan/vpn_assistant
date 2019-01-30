@@ -48,14 +48,14 @@ public class DebugInfoFragment extends BaseFragment {
     }
 
     @Override
-    protected void vpnConnected() {
-        super.vpnConnected();
+    protected void setVpnConnectedState() {
+        super.setVpnConnectedState();
         mHandler.sendEmptyMessage(VPN_CONNECTED);
     }
 
     @Override
-    protected void vpnDisconnected() {
-        super.vpnDisconnected();
+    protected void setVpnDisconnectedState() {
+        super.setVpnDisconnectedState();
         mHandler.sendEmptyMessage(VPN_DISCONNECTED);
     }
 }

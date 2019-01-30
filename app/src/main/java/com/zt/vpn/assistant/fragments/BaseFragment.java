@@ -11,18 +11,42 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
 import com.zt.vpn.assistant.ZtApplication;
-import com.zt.vpn.assistant.entry.VpnProfile;
-import com.zt.vpn.assistant.utils.Helper;
 import com.zt.vpn.assistant.utils.Toasts;
 import com.zt.vpn.assistant.utils.VpnUtil;
 
 
+/**
+ * @author
+ */
 public class BaseFragment extends Fragment {
     protected Activity activity;
-    protected final int VPN_CONNECTED = 0x001;
-    protected final int VPN_DISCONNECTED = 0x002;
-    protected int vpnState = VPN_DISCONNECTED;
     private ConnectivityManager mConnectivityManager;
+
+    /**
+     * @author VPN_CONNECTED 已连接
+     *         VPN_DISCONNECTED 断开连接
+     */
+    protected enum VpnState {
+        /**
+         * 已连接
+         */
+        VPN_CONNECTED,
+        /**
+         * 断开连接
+         */
+        VPN_DISCONNECTED;
+    }
+
+    protected VpnState mVpnState;
+
+    protected void setVpnState(VpnState state) {
+        this.mVpnState = state;
+    }
+
+    protected VpnState getVpnState() {
+
+        return mVpnState;
+    }
 
 
     private static final NetworkRequest VPN_REQUEST = new NetworkRequest.Builder()
@@ -35,44 +59,40 @@ public class BaseFragment extends Fragment {
     private ConnectivityManager.NetworkCallback mNetworkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
         public void onAvailable(Network network) {
-            Toasts.show(activity, "网络-Available");
             boolean vpnUsed = VpnUtil.isVpnUsed();
+            Toasts.show(activity, "网络-Available;vpnUsed=" + vpnUsed);
             if (vpnUsed) {
-                vpnConnected();
+                onVpnConnected();
             } else {
-                vpnDisconnected();
+                onVpnDisconnected();
             }
         }
 
         @Override
         public void onLost(Network network) {
             Toasts.show(activity, "网络-Lost");
-            vpnDisconnected();
+            onVpnDisconnected();
         }
     };
 
-    protected void vpnConnected() {
-        setVpnState(VPN_CONNECTED);
-        VpnProfile profile = (VpnProfile) Helper.getVpnProfile();
-        Helper.loadVpnProfile();
+    protected void onVpnConnected() {
+        setVpnState(VpnState.VPN_CONNECTED);
     }
 
-    protected void vpnDisconnected() {
-        setVpnState(VPN_DISCONNECTED);
+    protected void onVpnDisconnected() {
+        setVpnState(VpnState.VPN_DISCONNECTED);
     }
+
 
     protected boolean isConnected() {
-        return getVpnState() == VPN_CONNECTED ? true : false;
+        return getVpnState() == VpnState.VPN_CONNECTED;
     }
 
-    protected int getVpnState() {
-        return vpnState;
-    }
 
-    protected void setVpnState(int state) {
-        this.vpnState = state;
-    }
-
+    /**
+     * @return
+     */
+    @Override
     public Context getContext() {
         if (activity == null) {
             return ZtApplication.getInstance();
@@ -84,14 +104,13 @@ public class BaseFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         activity = getActivity();
-        mConnectivityManager = (ConnectivityManager) activity.getSystemService(activity.CONNECTIVITY_SERVICE);
+        mConnectivityManager = (ConnectivityManager) activity.getSystemService(Activity.CONNECTIVITY_SERVICE);
     }
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Start monitoring
         mConnectivityManager.registerNetworkCallback(VPN_REQUEST, mNetworkCallback);
     }
 
@@ -99,11 +118,6 @@ public class BaseFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         mConnectivityManager.unregisterNetworkCallback(mNetworkCallback);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
     }
 
 }

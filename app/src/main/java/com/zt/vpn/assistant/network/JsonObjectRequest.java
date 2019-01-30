@@ -23,7 +23,7 @@ class JsonObjectRequest extends Request<JSONObject> {
 
     JsonObjectRequest(Map<String, String> params,
                       Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
-        super(Method.POST, BuildConfig.HOST + "/rest", errorListener);
+        super(Method.POST, BuildConfig.HOST , errorListener);
         this.listener = listener;
         this.params = params;
     }

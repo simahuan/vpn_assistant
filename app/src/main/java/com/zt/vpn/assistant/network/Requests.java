@@ -1,13 +1,17 @@
 package com.zt.vpn.assistant.network;
 
+import com.android.volley.Response;
+
+import org.json.JSONObject;
+
 public class Requests {
 
-//    public static Object getHomeAds(Response.Listener<JSONObject> l, Response.ErrorListener e) {
-//        ParamBuilder b = ParamBuilder.newInstance().setApiName("Base.GetAdSettingAreaList");
-//        JsonObjectRequest r = new JsonObjectRequest(b.build(), l, e);
-//        return RequestManager.add(r);
-//    }
-//
+    public static Object getHomeAds(Response.Listener<JSONObject> l, Response.ErrorListener e) {
+        ParamBuilder b = ParamBuilder.newInstance().setApiName("Base.GetAdSettingAreaList");
+        JsonObjectRequest r = new JsonObjectRequest(b.build(), l, e);
+        return RequestManager.add(r);
+    }
+
 //    public static Object getHeadlines(Paging paging, Response.Listener<JSONObject> l, Response.ErrorListener e) {
 //        ParamBuilder b = ParamBuilder.newInstance()
 //                .setApiName("CmsArticle.GetHeadLineList")

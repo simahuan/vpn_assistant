@@ -3,62 +3,34 @@ package com.zt.vpn.assistant.entry;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-@SuppressWarnings("WeakerAccess")
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+/**
+ * @author
+ */
 public class VpnProfile implements Parcelable {
-    private String userName;
-    private String password;
-    private String session;
-    private String address;
 
-//    public static ArrayList<Address> parse(JSONArray array) {
-//        ArrayList<Address> items = new ArrayList<>();
-//        if (array == null) return items;
-//        for (int i = 0; i < array.length(); ++i) {
-//            JSONObject j = array.optJSONObject(i);
-//            Builder b = Address.newBuilder()
-//                    .id(j.optString("AddressId"))
-//                    .isDefault(j.optInt("IsDefault") == 1)
-//                    .name(j.optString("Name"))
-//                    .phone(j.optString("Phone"))
-//                    .areaCode(j.optString("AreaCode"))
-//                    .street(j.optString("Street"))
-//                    .areaFullName(AreaManager.getFullName(j.optString("AreaCode")));
-//            items.add(b.build());
-//        }
-//        return items;
-//    }
-
-    private VpnProfile() {
+    public static ArrayList<VpnProfile> parse(JSONArray array) {
+        ArrayList<VpnProfile> items = new ArrayList<>();
+        if (array == null) {
+            return items;
+        }
+        for (int i = 0; i < array.length(); ++i) {
+            JSONObject j = array.optJSONObject(i);
+            Builder b = VpnProfile.newBuilder()
+                    .userName(j.optString("userName"))
+                    .password(j.optString("password"))
+                    .address(j.optString("address"))
+                    .session(j.optString("session"))
+                    .area(j.optString("area"));
+            items.add(b.build());
+        }
+        return items;
     }
 
-    private VpnProfile(Builder builder) {
-        setUserName(builder.userName);
-        setPassword(builder.password);
-        setSession(builder.session);
-        setAddress(builder.address);
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public static Builder newBuilder(VpnProfile copy) {
-        Builder builder = new Builder();
-        builder.userName = copy.userName;
-        builder.password = copy.password;
-        builder.session = copy.session;
-        builder.address = copy.address;
-        return builder;
-    }
-
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String pUserName) {
-        userName = pUserName;
-    }
 
     public String getPassword() {
         return password;
@@ -84,38 +56,44 @@ public class VpnProfile implements Parcelable {
         address = pAddress;
     }
 
-    public static final class Builder {
-        private String userName;
-        private String password;
-        private String session;
-        private String address;
+    public String getArea() {
+        return area;
+    }
 
-        private Builder() {
-        }
+    public void setArea(String pArea) {
+        area = pArea;
+    }
 
-        public Builder userName(String val) {
-            userName = val;
-            return this;
-        }
+    public String getUserName() {
+        return userName;
+    }
 
-        public Builder password(String val) {
-            password = val;
-            return this;
-        }
+    private String userName;
+    private String password;
+    private String session;
+    private String address;
+    private String area;
 
-        public Builder session(String val) {
-            session = val;
-            return this;
-        }
+    private VpnProfile(Builder builder) {
+        password = builder.password;
+        session = builder.session;
+        area = builder.area;
+        userName = builder.userName;
+        address = builder.address;
+    }
 
-        public Builder address(String val) {
-            address = val;
-            return this;
-        }
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
-        public VpnProfile build() {
-            return new VpnProfile(this);
-        }
+    public static Builder newBuilder(VpnProfile copy) {
+        Builder builder = new Builder();
+        builder.password = copy.getPassword();
+        builder.session = copy.getSession();
+        builder.area = copy.getArea();
+        builder.address = copy.getAddress();
+        builder.userName = copy.getUserName();
+        return builder;
     }
 
     @Override
@@ -125,18 +103,22 @@ public class VpnProfile implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.userName);
         dest.writeString(this.password);
         dest.writeString(this.session);
         dest.writeString(this.address);
+        dest.writeString(this.area);
+        dest.writeString(this.userName);
     }
 
+    public VpnProfile() {
+    }
 
     protected VpnProfile(Parcel in) {
-        this.userName = in.readString();
         this.password = in.readString();
         this.session = in.readString();
         this.address = in.readString();
+        this.area = in.readString();
+        this.userName = in.readString();
     }
 
     public static final Creator<VpnProfile> CREATOR = new Creator<VpnProfile>() {
@@ -150,4 +132,44 @@ public class VpnProfile implements Parcelable {
             return new VpnProfile[size];
         }
     };
+
+    public static final class Builder {
+        private String password;
+        private String session;
+        private String area;
+        private String userName;
+        private String address;
+
+        private Builder() {
+        }
+
+        public Builder address(String val) {
+            address = val;
+            return this;
+        }
+
+        public Builder password(String val) {
+            password = val;
+            return this;
+        }
+
+        public Builder session(String val) {
+            session = val;
+            return this;
+        }
+
+        public Builder area(String val) {
+            area = val;
+            return this;
+        }
+
+        public Builder userName(String val) {
+            userName = val;
+            return this;
+        }
+
+        public VpnProfile build() {
+            return new VpnProfile(this);
+        }
+    }
 }

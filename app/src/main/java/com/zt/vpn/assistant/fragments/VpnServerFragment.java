@@ -41,13 +41,13 @@ public class VpnServerFragment extends BaseFragment implements View.OnClickListe
         @Override
         public boolean handleMessage(Message msg) {
             switch (msg.what) {
-                case VPN_CONNECTED:
+                case VpnState.VPN_CONNECTED:
                     if (null != vpnStartRadioButton && null != vpnStopRadioButton) {
                         vpnStartRadioButton.setEnabled(false);
                         vpnStopRadioButton.setEnabled(true);
                     }
                     break;
-                case VPN_DISCONNECTED:
+                case VpnState.VPN_DISCONNECTED:
                     if (null != vpnStartRadioButton && null != vpnStopRadioButton) {
                         vpnStartRadioButton.setEnabled(true);
                         vpnStopRadioButton.setEnabled(false);
@@ -61,15 +61,27 @@ public class VpnServerFragment extends BaseFragment implements View.OnClickListe
     });
 
     @Override
-    protected void vpnConnected() {
-        super.vpnConnected();
+    protected void onVpnConnected() {
+        super.onVpnConnected();
+        mHandler.sendEmptyMessage(VpnState.VPN_CONNECTED);
+    }
+
+    @Override
+    protected void onVpnDisconnected() {
+        super.onVpnDisconnected();
+        mHandler.sendEmptyMessage(VpnState.VPN_DISCONNECTED);
+    }
+
+    @Override
+    protected void setVpnConnectedState() {
+        super.setVpnConnectedState();
         isVpnConnecting = false;
         mHandler.sendEmptyMessage(VPN_CONNECTED);
     }
 
     @Override
-    protected void vpnDisconnected() {
-        super.vpnDisconnected();
+    protected void setVpnDisconnectedState() {
+        super.setVpnDisconnectedState();
         isVpnConnecting = false;
         mHandler.sendEmptyMessage(VPN_DISCONNECTED);
     }
@@ -78,6 +90,7 @@ public class VpnServerFragment extends BaseFragment implements View.OnClickListe
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             mAidlVpnSettingsServer = AidlVpnSettingsServer.Stub.asInterface(service);
+            // 服务起来之后 回调
             connected = true;
         }
 
@@ -133,6 +146,7 @@ public class VpnServerFragment extends BaseFragment implements View.OnClickListe
     }
 
     private VpnProfile getProfile() {
+
         VpnProfile profile = VpnProfile.newBuilder()
                 .session("vpn")
                 .address("61.235.101.12")
