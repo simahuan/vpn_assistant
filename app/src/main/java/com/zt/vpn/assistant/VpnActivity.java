@@ -100,6 +100,8 @@ public class VpnActivity extends AppCompatActivity implements View.OnClickListen
                     return new DebugInfoFragment();
                 case 1:
                     return new VpnServerFragment();
+                default:
+                    break;
             }
             return null;
         }

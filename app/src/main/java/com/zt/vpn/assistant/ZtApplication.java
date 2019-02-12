@@ -7,6 +7,9 @@ import android.content.res.Configuration;
 import com.zt.vpn.assistant.network.RequestManager;
 
 
+/**
+ * @author
+ */
 public class ZtApplication extends Application {
 
     private static ZtApplication mInstance;
